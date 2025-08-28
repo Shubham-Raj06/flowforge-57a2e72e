@@ -1,0 +1,428 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="[Your Agency Name] - Creative Agency Portfolio. We craft innovative digital experiences.">
+  <meta name="keywords" content="creative agency, portfolio, web design, branding, animation, digital marketing">
+  <meta name="author" content="[Your Agency Name]">
+  <meta property="og:title" content="[Your Agency Name] - Creative Agency Portfolio">
+  <meta property="og:description" content="We craft innovative digital experiences.">
+  <meta property="og:image" content="/images/og-image.jpg">
+  <meta property="og:url" content="[Your Website URL]">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="[Your Agency Name] - Creative Agency Portfolio">
+  <meta name="twitter:description" content="We craft innovative digital experiences.">
+  <meta name="twitter:image" content="/images/twitter-image.jpg">
+  <link rel="canonical" href="[Your Website URL]">
+
+  <title>[Your Agency Name] - Creative Agency Portfolio</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <!-- Structured Data (Schema.org) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "[Your Agency Name]",
+      "url": "[Your Website URL]",
+      "logo": "[Your Website URL]/images/logo.png",
+      "description": "We craft innovative digital experiences.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "[Your Street Address]",
+        "addressLocality": "[Your City]",
+        "addressRegion": "[Your State/Province]",
+        "postalCode": "[Your Postal Code]",
+        "addressCountry": "[Your Country]"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "[Your Phone Number]",
+        "contactType": "customer service",
+        "areaServed": "[Your Area Served]",
+        "availableLanguage": ["en"]
+      },
+      "sameAs": [
+        "[Your Facebook URL]",
+        "[Your Twitter URL]",
+        "[Your LinkedIn URL]",
+        "[Your Instagram URL]"
+      ]
+    }
+  </script>
+
+  <!-- CSS (Replace with your actual CSS links) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css"> <!-- Your main stylesheet -->
+  <link rel="stylesheet" href="animations.css"> <!-- Styles for animations -->
+
+  <!-- Particle.js Library (optional) -->
+  <link rel="stylesheet" media="screen" href="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js">
+
+  <style>
+    /* Example Modern CSS (Replace with your actual styles) */
+    :root {
+      --primary-color: #FF6B6B;
+      --secondary-color: #4A90E2;
+      --background-color: #1E1E1E;
+      --text-color: #FFFFFF;
+      --accent-color: #FDD835;
+    }
+
+    body {
+      font-family: sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden; /* Prevent horizontal scrolling */
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent header */
+      padding: 20px;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100; /* Ensure it stays on top */
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav li {
+      margin: 0 20px;
+    }
+
+    nav a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--primary-color);
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      /* Background with a gradient */
+      background: linear-gradient(to bottom, rgba(30, 30, 30, 0.8), rgba(30, 30, 30, 0.9)), url('/images/hero-background.jpg'); /* Replace with your image */
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden; /* Hide overflowing particles */
+    }
+
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      color: var(--accent-color);
+    }
+
+    .hero p {
+      font-size: 1.2em;
+      max-width: 700px;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: var(--primary-color);
+      color: var(--text-color);
+      padding: 15px 30px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: var(--secondary-color);
+    }
+
+    .portfolio {
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .portfolio h2 {
+      font-size: 2.5em;
+      margin-bottom: 40px;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      padding: 20px;
+    }
+
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .portfolio-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 250px; /* Consistent height for images */
+      object-fit: cover; /* Cover the space, cropping if necessary */
+      display: block;
+    }
+
+    .portfolio-item-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .portfolio-item:hover .portfolio-item-overlay {
+      opacity: 1;
+    }
+
+    .portfolio-item-overlay h3 {
+      color: var(--text-color);
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+
+    .portfolio-item-overlay p {
+      color: var(--text-color);
+      font-size: 1em;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* Animations (Add more to animations.css) */
+    .fade-in {
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header {
+        padding: 10px;
+      }
+
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav li {
+        margin: 10px 0;
+      }
+
+      .hero h1 {
+        font-size: 2.5em;
+      }
+
+      .hero p {
+        font-size: 1em;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <!-- Particles.js container -->
+    <div id="particles-js" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;"></div>
+
+    <div style="position: relative; z-index: 1;">
+      <h1 class="fade-in">Welcome to [Your Agency Name]</h1>
+      <p class="fade-in">We are a creative agency specializing in crafting stunning digital experiences that captivate and inspire.  We bring your vision to life with innovative design and cutting-edge technology.</p>
+      <a href="#portfolio" class="btn fade-in">View Our Work</a>
+    </div>
+  </section>
+
+  <section id="portfolio" class="portfolio">
+    <h2>Our Portfolio</h2>
+    <div class="portfolio-grid">
+
+      <div class="portfolio-item">
+        <img src="/images/project1.jpg" alt="Project 1">
+        <div class="portfolio-item-overlay">
+          <h3>Project Title 1</h3>
+          <p>A brief description of the project and the services we provided.</p>
+          <a href="#" class="btn">View Details</a>
+        </div>
+      </div>
+
+      <div class="portfolio-item">
+        <img src="/images/project2.jpg" alt="Project 2">
+        <div class="portfolio-item-overlay">
+          <h3>Project Title 2</h3>
+          <p>A brief description of the project and the services we provided.</p>
+          <a href="#" class="btn">View Details</a>
+        </div>
+      </div>
+
+      <div class="portfolio-item">
+        <img src="/images/project3.jpg" alt="Project 3">
+        <div class="portfolio-item-overlay">
+          <h3>Project Title 3</h3>
+          <p>A brief description of the project and the services we provided.</p>
+          <a href="#" class="btn">View Details</a>
+        </div>
+      </div>
+
+      <div class="portfolio-item">
+        <img src="/images/project4.jpg" alt="Project 4">
+        <div class="portfolio-item-overlay">
+          <h3>Project Title 4</h3>
+          <p>A brief description of the project and the services we provided.</p>
+          <a href="#" class="btn">View Details</a>
+        </div>
+      </div>
+
+      <div class="portfolio-item">
+        <img src="/images/project5.jpg" alt="Project 5">
+        <div class="portfolio-item-overlay">
+          <h3>Project Title 5</h3>
+          <p>A brief description of the project and the services we provided.</p>
+          <a href="#" class="btn">View Details</a>
+        </div>
+      </div>
+
+      <div class="portfolio-item">
+        <img src="/images/project6.jpg" alt="Project 6">
+        <div class="portfolio-item-overlay">
+          <h3>Project Title 6</h3>
+          <p>A brief description of the project and the services we provided.</p>
+          <a href="#" class="btn">View Details</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="services" style="padding: 80px 20px; text-align: center;">
+        <h2>Our Services</h2>
+        <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; padding: 20px;">
+            <div style="width: 300px; padding: 20px; border: 1px solid #444; border-radius: 10px; text-align: left;">
+                <h3>Web Design</h3>
+                <p>Creating stunning and responsive websites tailored to your brand.</p>
+            </div>
+            <div style="width: 300px; padding: 20px; border: 1px solid #444; border-radius: 10px; text-align: left;">
+                <h3>Branding</h3>
+                <p>Developing unique brand identities that resonate with your target audience.</p>
+            </div>
+            <div style="width: 300px; padding: 20px; border: 1px solid #444; border-radius: 10px; text-align: left;">
+                <h3>Digital Marketing</h3>
+                <p>Driving growth and engagement through effective digital marketing strategies.</p>
+            </div>
+             <div style="width: 300px; padding: 20px; border: 1px solid #444; border-radius: 10px; text-align: left;">
+                <h3>Animation</h3>
+                <p>Bringing your ideas to life with captivating animations and motion graphics.</p>
+            </div>
+        </div>
+    </section>
+
+  <section id="about" style="padding: 80px 20px; text-align: center;">
+      <h2>About Us</h2>
+      <div style="max-width: 800px; margin: 0 auto; padding: 20px; text-align: left;">
+          <p>We are a team of passionate creatives dedicated to delivering exceptional digital solutions. Our mission is to help businesses thrive in the digital landscape by providing innovative design, strategic branding, and effective marketing strategies.</p>
+          <p>With years of experience and a commitment to excellence, we work closely with our clients to understand their goals and create tailored solutions that exceed their expectations.  We value creativity, collaboration, and a relentless pursuit of perfection.</p>
+      </div>
+  </section>
+
+  <section id="contact" style="padding: 80px 20px; text-align: center;">
+      <h2>Contact Us</h2>
+      <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
+          <form action="#" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
+              <input type="text" name="name" placeholder="Your Name" style="padding: 10px; border: 1px solid #444; background-color: #222; color: #fff; border-radius: 5px;">
+              <input type="email" name="email" placeholder="Your Email" style="padding: 10px; border: 1px solid #444; background-color: #222; color: #fff; border-radius: 5px;">
+              <textarea name="message" placeholder="Your Message" rows="5" style="padding: 10px; border: 1px solid #444; background-color: #222; color: #fff; border-radius: 5px;"></textarea>
+              <button type="submit" class="btn" style="align-self: center;">Send Message</button>
+          </form>
+      </div>
+  </section>
+
+  <footer>
+    &copy; 2024 [Your Agency Name]. All Rights Reserved.
+  </footer>
+
+  <!-- JavaScript (Replace with your actual JS links) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="script.js"></script> <!-- Your main script -->
+  <script src="animations.js"></script> <!-- Script for animations -->
+    <!-- Particle.js -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS.load('particles-js', 'particlesjs-config.json', function() {
+      console.log('particles.js loaded - callback');
+    });
+  </script>
+</body>
+</html>
+```
