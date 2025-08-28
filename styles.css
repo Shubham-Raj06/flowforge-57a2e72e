@@ -1,0 +1,481 @@
+```css
+/* General Styles */
+:root {
+  --primary-color: #FF6B6B;
+  --secondary-color: #4A90E2;
+  --accent-color: #78E08F;
+  --text-color-light: #F5F5F5;
+  --text-color-dark: #333333;
+  --background-color: #1E1E1E;
+  --card-background: #2C2C2C;
+  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  --transition-duration: 0.3s;
+  --font-family: 'Roboto', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-color-light);
+  line-height: 1.6;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color var(--transition-duration);
+}
+
+a:hover {
+  color: var(--accent-color);
+}
+
+/* Typography */
+h1,
+h2,
+h3 {
+  font-weight: 700;
+  margin-bottom: 0.75em;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.25rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+p {
+  margin-bottom: 1em;
+  font-size: 1.1rem;
+  color: rgba(245, 245, 245, 0.8);
+}
+
+/* Layout & Structure */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+header {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 1rem 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  backdrop-filter: blur(5px); /* Modern glass effect */
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+}
+
+nav li {
+  margin-left: 2rem;
+}
+
+nav a {
+  display: block;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: background-color var(--transition-duration), color var(--transition-duration);
+}
+
+nav a:hover {
+  background-color: var(--primary-color);
+  color: var(--text-color-light);
+}
+
+main {
+  padding-top: 80px; /* Account for fixed header */
+}
+
+section {
+  padding: 4rem 0;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1506318137072-a8e03c6e6648?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'); /* Replace with your image */
+  background-size: cover;
+  background-position: center;
+  color: var(--text-color-light);
+  text-align: center;
+  padding: 12rem 0;
+  position: relative;
+  overflow: hidden; /* Hide overflowing particles */
+}
+
+.hero h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.5rem;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+}
+
+.btn {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: var(--text-color-light);
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  transition: transform var(--transition-duration), box-shadow var(--transition-duration);
+  box-shadow: var(--box_shadow);
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Particle Effect (using a library like particles.js or similar) */
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0; /* Behind the content */
+}
+
+/* Services Section */
+.services {
+  background-color: var(--card-background);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.service-card {
+  background-color: #333;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  transition: transform var(--transition-duration), box-shadow var(--transition-duration);
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.service-card h3 {
+  margin-bottom: 0.5rem;
+}
+
+.service-card p {
+  font-size: 1rem;
+}
+
+.service-icon {
+  font-size: 3rem; /* Example - use icon library */
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+}
+
+/* Portfolio Section */
+.portfolio {
+  position: relative; /* for the before pseudo-element */
+  overflow: hidden;
+}
+
+.portfolio::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)); /* Darken portfolio slightly */
+  z-index: 1;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  position: relative;
+  z-index: 2; /* Ensure content is above the pseudo-element */
+}
+
+.portfolio-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  transition: transform var(--transition-duration);
+}
+
+.portfolio-item:hover {
+  transform: scale(1.05);
+}
+
+.portfolio-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: opacity var(--transition-duration);
+}
+
+.portfolio-item:hover img {
+  opacity: 0.7; /* Slight fade on hover */
+}
+
+.portfolio-item .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity var(--transition-duration);
+}
+
+.portfolio-item:hover .overlay {
+  opacity: 1;
+}
+
+.portfolio-item .overlay h3,
+.portfolio-item .overlay p {
+  color: var(--text-color-light);
+  text-align: center;
+}
+
+.portfolio-item .overlay h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.portfolio-item .overlay p {
+  font-size: 1rem;
+}
+
+
+/* Immersive Gallery (use a library like Lightbox or Swiper) */
+.gallery-container {
+  /* Styles for your gallery container - e.g., using Swiper.js */
+}
+
+/* About Section */
+.about {
+  background-color: var(--card-background);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.about-image {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.about-image:hover img {
+  transform: scale(1.1);
+}
+
+/* Contact Section */
+.contact {
+  background-color: #252525;
+  text-align: center;
+}
+
+.contact form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact label {
+  text-align: left;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.contact input,
+.contact textarea {
+  padding: 0.75rem;
+  margin-bottom: 1.5rem;
+  border: none;
+  background-color: #444;
+  color: var(--text-color-light);
+  border-radius: 5px;
+  font-family: var(--font-family);
+}
+
+.contact input:focus,
+.contact textarea:focus {
+  outline: none;
+  box-shadow: 0 0 5px var(--primary-color);
+}
+
+.contact textarea {
+  resize: vertical;
+  height: 150px;
+}
+
+.contact button[type="submit"] {
+  background-color: var(--secondary-color);
+  color: var(--text-color-light);
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color var(--transition-duration), transform var(--transition-duration);
+  box-shadow: var(--box-shadow);
+  font-family: var(--font-family);
+}
+
+.contact button[type="submit"]:hover {
+  background-color: var(--accent-color);
+  transform: translateY(-2px);
+}
+
+/* Footer */
+footer {
+  background-color: #151515;
+  text-align: center;
+  padding: 2rem 0;
+  font-size: 0.9rem;
+}
+
+footer a {
+  margin: 0 0.5rem;
+}
+
+/* Scroll to Top Button */
+#scrollToTopBtn {
+  display: none; /* Hidden by default */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: var(--secondary-color);
+  color: var(--text-color-light);
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 50%;
+  font-size: 18px;
+  transition: background-color var(--transition-duration);
+}
+
+#scrollToTopBtn:hover {
+  background-color: var(--accent-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 1.5rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav li {
+    margin-left: 0;
+    margin-bottom: 1rem;
+  }
+
+  .hero {
+    padding: 8rem 0;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+  }
+}
+
+/* Keyframes for Animations */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Example Usage - add to elements as needed */
+.animate-fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+```
